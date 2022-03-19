@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 7fa75d404b038ff43b66af692b49808b
+guid: 9a07663f92a456e4082dbf942f146add
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - energyBalls: {fileID: 3143167535410178002, guid: 1f8fb208908a64d42ad0aa940c3d3f12, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
