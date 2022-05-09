@@ -1152,7 +1152,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &379847875
@@ -2912,6 +2912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139718596}
   - component: {fileID: 1139718595}
+  - component: {fileID: 1139718597}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -2931,9 +2932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4942abb4a3a252b4f8edbe50aab6bcd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7531922682301611372, guid: f7fe1a9fcedb07340b56c01d4e88f422, type: 3}
-  - {fileID: 1068213132310119625, guid: 070e68ddcd7ea3341a7772bf285c64ad, type: 3}
+  enemyPrefabs: {fileID: 7531922682301611372, guid: f7fe1a9fcedb07340b56c01d4e88f422, type: 3}
 --- !u!4 &1139718596
 Transform:
   m_ObjectHideFlags: 0
@@ -2948,6 +2947,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1139718597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139718594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9235a103e814a74cbf0e897b159e895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1068213132310119625, guid: 070e68ddcd7ea3341a7772bf285c64ad, type: 3}
+  powerUpPrefab: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
 --- !u!4 &1140502812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6075155838382831309, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
@@ -3411,12 +3424,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa75d404b038ff43b66af692b49808b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 50
+  jumpSpeed: 25
   energyBalls: {fileID: 843379784266558565, guid: fe14c37e18ad7204bb7e8289066274ee, type: 3}
   maxHealth: 100
   currentHealth: 0
+  powerUpIn: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
+  powerUpSpeed: 3
   gameOver: 0
   energySound: {fileID: 8300000, guid: c6c0ce38b311e2e4dabe6dfa01f4ed84, type: 3}
+  jumpSound: {fileID: 8300000, guid: f49a47ce5e12d124191315191ab6c7cc, type: 3}
+  powerSound: {fileID: 8300000, guid: afb5cb6371644b846bf7cb2d8e9f16eb, type: 3}
 --- !u!135 &1457373116
 SphereCollider:
   m_ObjectHideFlags: 0

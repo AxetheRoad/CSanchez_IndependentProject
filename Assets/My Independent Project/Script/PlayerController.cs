@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 5.0f;
+    private float speed = 3.0f;
     private float gravity = 9.8f;
     public float jumpSpeed = 50.0f;
     public GameObject energyBalls;
@@ -17,12 +17,17 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     bool canJump;
     bool canDoubleJump;
+    public GameObject powerUpIn;
+    public float powerUpSpeed = 10.0f;
 
     public bool gameOver = false;
+    bool hasPowerUp = false;
 
     private AudioSource auPlayer;
     public AudioClip energySound;
- 
+    public AudioClip jumpSound;
+    public AudioClip powerSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         rb.AddForce(0f, jumpSpeed * gravity, 0f);
+        auPlayer.PlayOneShot(jumpSound, 1.0f);
     }
 
     // Update is called once per frame
@@ -74,6 +80,7 @@ public class PlayerController : MonoBehaviour
               
                 Jump();
                 canDoubleJump = true;
+                
 
             }
              else if (canDoubleJump)
@@ -104,5 +111,26 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerUp"))
+        {
+            hasPowerUp = true;
+            speed = powerUpSpeed + speed;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerUpCountDown());
+            auPlayer.PlayOneShot(powerSound, 1.0f);
+            powerUpIn.SetActive(true);
+        }
+
+    }
+    IEnumerator PowerUpCountDown()
+    {
+        yield return new WaitForSeconds(8);
+        hasPowerUp = false;
+        speed = speed - powerUpSpeed;
+        powerUpIn.SetActive(false);
     }
 }

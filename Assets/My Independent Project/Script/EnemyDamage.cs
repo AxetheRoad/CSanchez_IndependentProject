@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    int damage = 10;
+    public int damage = 10;
 
 
     void Start()
@@ -15,7 +15,7 @@ public class EnemyDamage : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
-
+        return;
     }
 
    

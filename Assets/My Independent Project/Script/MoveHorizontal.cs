@@ -11,9 +11,11 @@ public class MoveHorizontal : MonoBehaviour
     public AudioClip attackSound;
     public AudioClip dieSound;
     private PlayerController playerCtrl;
+
     // Start is called before the first frame update
     void Start()
     {
+
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerController>();
         animSlime = GetComponent<Animator>();
         auSlime = GetComponent<AudioSource>();
@@ -22,6 +24,7 @@ public class MoveHorizontal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (playerCtrl.gameOver == false & !enemyStop)
         {
       
@@ -33,8 +36,12 @@ public class MoveHorizontal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
-        animSlime.SetTrigger("Attack");
-        auSlime.PlayOneShot(attackSound, .5f);
+        if (other.gameObject.name == "Player")
+
+        {
+            animSlime.SetTrigger("Attack");
+            auSlime.PlayOneShot(attackSound, .5f);
+        }
     }
 
 

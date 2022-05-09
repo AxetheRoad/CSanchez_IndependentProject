@@ -8,6 +8,8 @@ TagManager:
   - Energy
   - Green
   - Red
+  - FxTemporaire
+  - PowerUp
   layers:
   - Default
   - TransparentFX
